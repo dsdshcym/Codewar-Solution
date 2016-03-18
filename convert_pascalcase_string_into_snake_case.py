@@ -1,15 +1,9 @@
+import re
+
+def cut(string):
+    r = r'[A-Z]?[^A-Z]*'
+    return [s.lower() for s in re.findall(r, string) if s]
+
 def to_underscore(string):
-    string = str(string)
-    if not string:
-        return ""
-    part = []
-    results = []
-    for c in string:
-        if c.isupper():
-            if part:
-                results.append(''.join(part))
-            part = []
-        part.append(c.lower())
-    if part:
-        results.append(''.join(part))
-    return '_'.join(results)
+    words = cut(str(string))
+    return '_'.join(words)
