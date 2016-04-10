@@ -1,13 +1,10 @@
 def valid_parentheses(string):
-    stack = []
+    count = 0
     for c in string:
-        if c == '(':
-            stack.append(c)
-        elif c ==')':
-            if not stack:
-                return False
-            stack.pop()
-    return stack == []
+        count += (c == '(') - (c == ')')
+        if count < 0:
+            return False
+    return count == 0
 
 assert(valid_parentheses("  (") == False)
 assert(valid_parentheses(")test") == False)
