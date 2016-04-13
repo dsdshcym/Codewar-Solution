@@ -1,9 +1,7 @@
-import numbers
-import math
+from numbers import Integral
+from math import sqrt
 
 def is_triangle_number(number):
-    if not isinstance(number, numbers.Integral):
+    if not isinstance(number, Integral):
         return False
-    number *= 2
-    x = int(math.sqrt(number))
-    return x * (x + 1) == number or (x - 1) * x == number
+    return sqrt(1 + 8 * number).is_integer()
