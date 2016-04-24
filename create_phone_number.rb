@@ -1,6 +1,5 @@
 def createPhoneNumber(numbers)
-  numbers = numbers.map(&:to_s).join
-  return "(" + numbers[0..2] + ") " + numbers[3..5] + "-" + numbers[6..-1]
+  "(%d%d%d) %d%d%d-%d%d%d%d" % numbers
 end
 
 createPhoneNumber(Array(0..9))
